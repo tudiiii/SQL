@@ -1,8 +1,8 @@
 SET @hour = -1;
-SELECT @ hour := @hour + 1 HOUR, {
+SELECT @ hour := @hour + 1 HOUR, (
     SELECT COUNT(DATETIME)
     FROM ANIMAL_OUTS B
     WHERE HOUR(DATETIME) = @hour
-} COUNT
+ ) COUNT
 FROM ANIMAL_OUTS A
 WHERE @hour < 23
